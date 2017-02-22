@@ -20,28 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-/**
- *  Check if before AFNetworking 3.0
- */
-#if __has_include_next("AFNetworking/AFHTTPRequestOperationManager.h")
-
-#import <AFNetworking/AFHTTPRequestOperationManager.h>
-#define AFHTTPManager AFHTTPRequestOperationManager
-
-#elif __has_include_next("AFNetworking/AFHTTPSessionManager.h")
-
 #import <AFNetworking/AFHTTPSessionManager.h>
-#define AFHTTPManager AFHTTPSessionManager
-#define isSessionManager 1
 
-#endif
+#define isSessionManager 1
 
 @class LIALinkedInApplication;
 
 /**
  * A LinkedIn client is created using a `LIALinkedInApplication` and is the network instance that will perform all requests to the LinkedIn API.
  **/
-@interface LIALinkedInHttpClient : AFHTTPManager
+@interface LIALinkedInHttpClient : AFHTTPSessionManager
 
 /** ************************************************************************************************ **
  * @name Initializers
